@@ -1,0 +1,238 @@
+{
+  "heldout": {
+    "Random guess (alert rate)": 0.153,
+    "Age rule (cycle count)": 0.708,
+    "Simple sensor rule": 0.875,
+    "Logistic Regression": 0.946,
+    "Random Forest": 0.938,
+    "XGBoost": 0.944
+  },
+  "heldout_roc": {
+    "Random guess (alert rate)": 0.5,
+    "Age rule (cycle count)": 0.937,
+    "Simple sensor rule": 0.97,
+    "Logistic Regression": 0.987,
+    "Random Forest": 0.986,
+    "XGBoost": 0.987
+  },
+  "cv": {
+    "PR-AUC mean": {
+      "Age rule (cycle count)": 0.526,
+      "Simple sensor rule": 0.912,
+      "Logistic Regression": 0.957,
+      "Random Forest": 0.952,
+      "XGBoost": 0.956
+    },
+    "PR-AUC std": {
+      "Age rule (cycle count)": 0.029,
+      "Simple sensor rule": 0.007,
+      "Logistic Regression": 0.008,
+      "Random Forest": 0.009,
+      "XGBoost": 0.009
+    }
+  },
+  "alert": [
+    {
+      "Model": "Age rule (cycle count)",
+      "Precision": 0.57,
+      "Recall": 0.75,
+      "False alarms": 260,
+      "Missed": 117,
+      "Cost": 1430
+    },
+    {
+      "Model": "Simple sensor rule",
+      "Precision": 0.71,
+      "Recall": 0.83,
+      "False alarms": 159,
+      "Missed": 79,
+      "Cost": 949
+    },
+    {
+      "Model": "Logistic Regression",
+      "Precision": 0.75,
+      "Recall": 0.93,
+      "False alarms": 147,
+      "Missed": 34,
+      "Cost": 487
+    },
+    {
+      "Model": "Random Forest",
+      "Precision": 0.63,
+      "Recall": 0.97,
+      "False alarms": 270,
+      "Missed": 13,
+      "Cost": 400
+    },
+    {
+      "Model": "XGBoost",
+      "Precision": 0.64,
+      "Recall": 0.97,
+      "False alarms": 257,
+      "Missed": 14,
+      "Cost": 397
+    },
+    {
+      "Model": "No model (never alert)",
+      "Precision": null,
+      "Recall": 0.0,
+      "False alarms": 0,
+      "Missed": 465,
+      "Cost": 4650
+    }
+  ],
+  "lead": [
+    26,
+    38,
+    79,
+    35,
+    26,
+    32,
+    27,
+    22,
+    82,
+    47,
+    43,
+    113,
+    41,
+    31,
+    31
+  ],
+  "lead_median": 35.0,
+  "lead_never": 0,
+  "official": [
+    {
+      "Model": "Random guess (alert rate)",
+      "PR-AUC": 0.25,
+      "ROC-AUC": 0.5,
+      "Precision": null,
+      "Recall": null
+    },
+    {
+      "Model": "Age rule (cycle count)",
+      "PR-AUC": 0.51,
+      "ROC-AUC": 0.8,
+      "Precision": 0.5,
+      "Recall": 0.52
+    },
+    {
+      "Model": "Simple sensor rule",
+      "PR-AUC": 0.89,
+      "ROC-AUC": 0.96,
+      "Precision": 0.82,
+      "Recall": 0.72
+    },
+    {
+      "Model": "Logistic Regression",
+      "PR-AUC": 0.95,
+      "ROC-AUC": 0.98,
+      "Precision": 0.88,
+      "Recall": 0.84
+    },
+    {
+      "Model": "Random Forest",
+      "PR-AUC": 0.95,
+      "ROC-AUC": 0.98,
+      "Precision": 0.77,
+      "Recall": 0.96
+    },
+    {
+      "Model": "XGBoost",
+      "PR-AUC": 0.94,
+      "ROC-AUC": 0.98,
+      "Precision": 0.79,
+      "Recall": 0.88
+    }
+  ],
+  "shap": {
+    "s15_m10": 1.409000039100647,
+    "s3_m10": 1.0069999694824219,
+    "cycle": 0.9269999861717224,
+    "s21_m10": 0.6819999814033508,
+    "s11_m10": 0.5389999747276306,
+    "s4_now": 0.3630000054836273,
+    "s13_m10": 0.29899999499320984,
+    "s9_m10": 0.28999999165534973
+  },
+  "ks_raw": 0.7968927484391743,
+  "ks_norm": 0.04001828981452562,
+  "drift": [
+    {
+      "Scenario": "FD001 held-out engines (no drift)",
+      "PR-AUC": 0.94,
+      "ROC-AUC": 0.99,
+      "Precision": 0.64,
+      "Recall": 0.97
+    },
+    {
+      "Scenario": "FD002, naive (FD001 normalisation)",
+      "PR-AUC": 0.3,
+      "ROC-AUC": 0.69,
+      "Precision": 0.61,
+      "Recall": 0.04
+    },
+    {
+      "Scenario": "FD002, drift-aware (per-regime normalisation)",
+      "PR-AUC": 0.94,
+      "ROC-AUC": 0.99,
+      "Precision": 0.73,
+      "Recall": 0.94
+    }
+  ],
+  "cmp": [
+    {
+      "Approach": "FD001 model, naive",
+      "PR-AUC": 0.28,
+      "ROC-AUC": 0.68
+    },
+    {
+      "Approach": "FD001 model, drift-aware features",
+      "PR-AUC": 0.94,
+      "ROC-AUC": 0.99
+    },
+    {
+      "Approach": "Retrained on FD002, drift-aware features",
+      "PR-AUC": 0.96,
+      "ROC-AUC": 0.99
+    }
+  ],
+  "single": {
+    "engine": 13,
+    "cycle": 162,
+    "risk": 1.0,
+    "rul": 1,
+    "top": {
+      "s9_m10": [
+        3.255918649472567,
+        1.3601624965667725
+      ],
+      "s15_m10": [
+        1.8452032550214852,
+        1.1205016374588013
+      ],
+      "s4_m10": [
+        1.879342413613537,
+        0.9641441702842712
+      ],
+      "s14_now": [
+        3.9152122509750735,
+        0.8884297609329224
+      ],
+      "s11_m10": [
+        1.8901373016723713,
+        0.8073722720146179
+      ]
+    }
+  },
+  "n": {
+    "train_rows": 14558,
+    "val_rows": 3035,
+    "test_rows": 3038,
+    "pos_rate": 0.15025931850128446,
+    "features": 43,
+    "sensors_kept": 14,
+    "fd002_engines": 260,
+    "fd002_rows": 53759,
+    "fd002_heldout": 78
+  }
+}
